@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            position: relative;
+            background-color: #747bff;
+            padding: 10px;
+        }
+
+        .inner {
+            position: absolute;
+            background-color: lightpink;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner"></div>
+    </div>
+
+
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+<script>
+    const doc = new jsPDF();
+
+    doc.text("Hello world!", 10, 10);
+    doc.save("a4.pdf");
+
+    const test = async () => {
+        return 123
+    }
+
+    console.log(test())
+
+    test().then(res => {
+        console.log(res)
+    })
+
+    async function fun() {
+        const val = await test()
+        console.log('val', val)
+    }
+
+    fun()
+
+</script>
+</body>
+</html>

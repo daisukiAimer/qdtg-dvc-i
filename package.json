@@ -1,0 +1,107 @@
+{
+  "name": "dvc-i",
+  "private": true,
+  "version": "1.0.1",
+  "main": "dist-electron/index.js",
+  "scripts": {
+    "dev": "vite .",
+    "build:vite": "vite build",
+    "build": "vite build && electron-builder -w",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fingerprintjs/fingerprintjs": "^4.0.1",
+    "adm-zip": "^0.4.16",
+    "axios": "^1.4.0",
+    "diskinfo": "^0.0.3",
+    "electron-log": "^4.4.8",
+    "ffprobe": "^1.1.2",
+    "ffprobe-static": "^3.1.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "iconv-lite": "^0.6.3",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "node-disk-info": "^1.3.0",
+    "node-machine-id": "^1.1.12",
+    "request": "^2.88.2",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.4",
+    "systeminformation": "^5.21.1",
+    "vue": "^3.2.45",
+    "vue-count-to": "^1.0.13"
+  },
+  "devDependencies": {
+    "@originjs/vite-plugin-commonjs": "^1.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@types/lodash": "^4.14.197",
+    "@vicons/fluent": "^0.12.0",
+    "@vicons/material": "^0.12.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "cross-env": "^7.0.3",
+    "electron": "20.0.0",
+    "electron-builder": "^24.6.3",
+    "naive-ui": "^2.34.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "sass": "^1.66.1",
+    "sass-loader": "^13.3.2",
+    "vite": "4.0.5",
+    "vite-plugin-electron": "^0.11.1",
+    "vite-plugin-require-transform": "^1.0.9"
+  },
+  "build": {
+    "appId": "com.qdtg.desktop",
+    "productName": "MTM-Video-Forensics",
+    "asar": false,
+    "copyright": "Copyright © 2023 qdtg",
+    "directories": {
+      "output": "release/"
+    },
+    "files": [
+      "dist",
+      "dist-electron",
+      "electron",
+      "extraFiles"
+    ],
+    "extraFiles": [
+      "extraFiles"
+    ],
+    "extraResources": [
+      "extraFiles"
+    ],
+    "mac": {
+      "icon": "./src/assets/app.png",
+      "artifactName": "${productName}_${version}.${ext}",
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "icon": "./src/assets/app.png",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}_${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "deleteAppDataOnUninstall": false,
+      "installerLanguages": "en_US",
+      "language": 1033,
+      "allowToChangeInstallationDirectory": true
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "http://127.0.0.1:8080"
+      }
+    ],
+    "releaseInfo": {
+      "releaseNotes": "版本更新具体内容"
+    }
+  }
+}
